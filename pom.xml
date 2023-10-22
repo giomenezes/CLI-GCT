@@ -41,6 +41,8 @@
             <version>8.0.33</version>
         </dependency>
 
+        <!--dependência do looca-->
+
         <dependency>
             <groupId>com.github.britooo</groupId>
             <artifactId>looca-api</artifactId>

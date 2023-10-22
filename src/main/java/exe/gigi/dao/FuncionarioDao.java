@@ -1,6 +1,6 @@
-package exe.gba.dao;
+package exe.gigi.dao;
 
-import exe.gba.objeto.Funcionario;
+import exe.gigi.objeto.Funcionario;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -14,10 +14,10 @@ public class FuncionarioDao {
     }
 
     public List<Funcionario> listar () {
-        return con.query("SELECT id_funcionario, nome, email FROM tb_funcionario;", new BeanPropertyRowMapper<>(Funcionario.class));
+        return con.query("SELECT id_funcionario, nome, cargo, email FROM funcionario;", new BeanPropertyRowMapper<>(Funcionario.class));
     }
 
     public List<Funcionario> getFuncionarioPorLogin (Funcionario funcionario) {
-        return con.query("SELECT * FROM tb_funcionario WHERE email = ? AND senha = ?", new BeanPropertyRowMapper<>(Funcionario.class), funcionario.getEmail(), funcionario.getSenha());
+        return con.query("SELECT * FROM funcionario WHERE email = ? AND senha = ?", new BeanPropertyRowMapper<>(Funcionario.class), funcionario.getEmail(), funcionario.getSenha());
     }
 }

@@ -1,29 +1,16 @@
-package exe.gba.objeto;
-
-import java.time.LocalDate;
+package exe.gigi.objeto;
 
 public class Funcionario {
     private Integer idFuncionario;
     private String nome;
     private String email;
     private String senha;
+    private String cargo;
+    private Integer fkEmpresa;
 
     public Funcionario () {}
 
     public Funcionario (String email, String senha) {
-        this.email = email;
-        this.senha = senha;
-    }
-
-    public Funcionario (String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-    }
-
-    public Funcionario (Integer id, String nome, String email, String senha) {
-        this.idFuncionario = id;
-        this.nome = nome;
         this.email = email;
         this.senha = senha;
     }
@@ -60,13 +47,33 @@ public class Funcionario {
         this.senha = senha;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
+    }
+
+    public void setFkEmpresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
+    }
+
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "idFuncionario=" + idFuncionario +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+        return """
+            
+            +--------------------------------------+
+              Funcionário: %d            
+            +--------------------------------------+
+              Nome: %s                     
+              Cargo: %s
+              Email: %s
+            +--------------------------------------+
+                """.formatted(idFuncionario, nome, cargo, email);
     }
 }

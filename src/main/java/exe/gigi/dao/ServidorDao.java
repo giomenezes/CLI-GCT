@@ -14,6 +14,6 @@ public class ServidorDao {
     }
 
     public List<Servidor> listar() {
-        return con.query("SELECT id_servidor, nome, codigo, descricao FROM servidor;", new BeanPropertyRowMapper<>(Servidor.class));
+        return con.query("SELECT id_servidor, nome, codigo, descricao, localizacao, status FROM servidor;", new BeanPropertyRowMapper<>(Servidor.class));
     }
 }

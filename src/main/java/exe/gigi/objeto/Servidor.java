@@ -5,6 +5,8 @@ public class Servidor {
     private String nome;
     private String codigo;
     private String descricao;
+    private String localizacao;
+    private Integer status;
 
     public Servidor() {
     }
@@ -41,16 +43,34 @@ public class Servidor {
         this.descricao = descricao;
     }
 
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return """
-                
+               
         +------------------------------------------------------+
           Servidor: %s            
         +------------------------------------------------------+
           Nome: %s                     
           Descrição: %s
+          Localização: %s
+          Status: %d
         +------------------------------------------------------+
-        """.formatted(codigo, nome, descricao);
+        """.formatted(codigo, nome, descricao, localizacao, status);
     }
 }

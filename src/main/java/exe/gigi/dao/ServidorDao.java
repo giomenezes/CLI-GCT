@@ -1,5 +1,7 @@
 package exe.gigi.dao;
 
+import com.github.britooo.looca.api.group.processos.Processo;
+import exe.gigi.objeto.Maquina;
 import exe.gigi.objeto.Servidor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

@@ -42,7 +42,7 @@ public class Main {
                 case 3 -> menu.listarInformacoes(servidor);
                 case 4 -> menu.verificarDados(servidor);
                 case 5 -> menu.verificarVolumes();
-                case 6 -> menu.verificarProcessos();
+                case 6 -> menu.verificarProcessos(servidor);
                 case 0 -> menu.exibirMensagemSair();
                 default -> menu.opcaoInvalida();
             }

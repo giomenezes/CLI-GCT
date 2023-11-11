@@ -164,11 +164,14 @@ public class Menu {
         }
     }
 
-    public void verificarProcessos() {
+    public void verificarProcessos(Servidor servidor) {
         Maquina maquina = new Maquina(looca);
+
         for (Processo processoAtual :
                 maquina.getProcessos()) {
             System.out.println(processoAtual);
         }
+
+        maquinaDao.inserirProcesso(maquina, servidor);
     }
 }

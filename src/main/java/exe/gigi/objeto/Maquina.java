@@ -86,10 +86,9 @@ public class Maquina {
         return processos.size();
     }
 
-    private Double conversorGB(Long valor) {
+    public Double conversorGB(Long valor) {
         return valor * Math.pow(10, -9);
     }
-
 
     public List<Volume> getVolumes() {
         return volumes;

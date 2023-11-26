@@ -92,8 +92,7 @@ public class Menu {
         System.out.println(servidores);
 
         String codigoServidor = this.solicitarOpcaoString();
-        for (Servidor servidorDaVez :
-                servidores) {
+        for (Servidor servidorDaVez : servidores) {
             if (servidorDaVez.getCodigo().equalsIgnoreCase(codigoServidor)){
                 Servidor servidor = servidorDaVez;
                 return servidor;
@@ -144,11 +143,12 @@ public class Menu {
                   Armazenamento disponível: %.2f%%
                   
                   Qtd. de processos: %d
-                +------------------------------------------------------+""".formatted(servidor.getCodigo(), maquina.getUsoCpu(), maquina.getFrequenciaCpu(), maquina.getMemoriaEmUso(), maquina.getMemoriaDisponivel(),
+                +------------------------------------------------------+""".formatted(servidor.getCodigo(), maquina.getUsoCpu(servidor.getIdServidor()),
+                    maquina.getFrequenciaCpu(), maquina.getMemoriaEmUso(servidor.getIdServidor()), maquina.getMemoriaDisponivel(),
                     maquina.getVolumeDisponivel(), maquina.getQuantidadeProcessos()));
 
-            maquinaDao.inserirCPU(maquina);
-            maquinaDao.inserirRAM(maquina);
+            maquinaDao.inserirCPU(maquina, servidor.getIdServidor());
+            maquinaDao.inserirRAM(maquina, servidor.getIdServidor());
             maquinaDao.inserirDisco(maquina);
             return;
         }

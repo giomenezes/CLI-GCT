@@ -36,8 +36,8 @@ public class Maquina {
         return cpu.getMicroarquitetura();
     }
 
-    public Double getUsoCpu() {
-        return cpu.getUso();
+    public Double getUsoCpu(Integer id) {
+        return cpu.getUso() + (cpu.getUso() * (id / 100));
     }
 
     public String getFrequenciaCpu() {
@@ -57,8 +57,8 @@ public class Maquina {
         return this.conversorGB(memoria.getDisponivel());
     }
 
-    public Double getMemoriaEmUso() {
-        return this.conversorGB(memoria.getEmUso());
+    public Double getMemoriaEmUso(Integer id) {
+        return this.conversorGB(memoria.getEmUso()) + (this.conversorGB(memoria.getEmUso()) * (id / 100));
     }
 
     public Double getMemoriaTotal() {

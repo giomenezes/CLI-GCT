@@ -9,7 +9,7 @@ public class Conexao {
     public Conexao() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/gct_individual");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/gct_individual   ");
         dataSource.setUsername("aluno");
         dataSource.setPassword("sptech");
 

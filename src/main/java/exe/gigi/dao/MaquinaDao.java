@@ -12,16 +12,16 @@ public class MaquinaDao {
     private JdbcTemplate con;
     public MaquinaDao(JdbcTemplate con) { this.con = con;}
 
-    public void inserirCPU(Maquina maquina) {
+    public void inserirCPU(Maquina maquina, Integer id) {
         con.update("""
                 INSERT INTO registro (valor_registro, data_registro, fk_componente, fk_medida) values (%.2f, now(), 1, 1);
-                """.formatted(maquina.getUsoCpu()));
+                """.formatted(maquina.getUsoCpu(id)));
     }
 
-    public void inserirRAM(Maquina maquina) {
+    public void inserirRAM(Maquina maquina, Integer id) {
         con.update("""
                 INSERT INTO registro (valor_registro, data_registro, fk_componente, fk_medida) values (%.2f, now(), 2, 2);
-                """.formatted(maquina.getMemoriaEmUso()));
+                """.formatted(maquina.getMemoriaEmUso(id)));
     }
 
     public void inserirDisco(Maquina maquina) {
@@ -50,7 +50,7 @@ public class MaquinaDao {
             swap_utilizada = maquina.conversorGB(processoAtual.getMemoriaVirtualUtilizada());
 
             con.update("""
-            INSERT INTO processo (pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, fk_servidor) VALUES (%d, '%s',%f, %f, %f, %f, %d);
+            INSERT INTO processo (pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, data_registro, fk_servidor) VALUES (%d, '%s',%f, %f, %f, %f, now(), %d);
             """.formatted(pid, nome, uso_cpu, uso_memoria, bytes_utilizados, swap_utilizada, fk_servidor));
         }
     }

@@ -47,7 +47,5 @@ public class Main {
                 default -> menu.opcaoInvalida();
             }
         } while(true);
-
-
     }
 }
